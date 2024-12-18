@@ -1,0 +1,1 @@
+docker run -d -p 9999:8888 --gpus=all --name lsml2_train lsml2_train:latest

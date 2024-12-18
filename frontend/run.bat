@@ -1,0 +1,1 @@
+docker run -d --name lsml2_ui lsml2_ui:latest

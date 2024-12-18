@@ -1,0 +1,1 @@
+docker build -t lsml2_back:latest .

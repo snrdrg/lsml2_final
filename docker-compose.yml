@@ -1,0 +1,32 @@
+version: "3"
+services:
+  lsml2_ui:
+    build: frontend/
+    container_name: lsml2_ui
+    hostname: frontend
+  lsml2_backend:
+    build: backend/
+    ports:
+      - 8088:8088
+    container_name: lsml2_backend
+    hostname: backend
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+  lsml2_train:
+    build: training/
+    ports:
+      - 9999:8888
+    container_name: lsml2_train
+    hostname: training/
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu] 
